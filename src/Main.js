@@ -10,7 +10,6 @@ import phone4 from '../assets/phone4.png';
 
 // create a component
 const Main = ({navigation}) => {
-
     return (
     <ScrollView>
         <View style={styles.container}>
@@ -29,6 +28,7 @@ const Main = ({navigation}) => {
                     R19,999.00 
                     </Text> R16,000.00
                     </Text>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Find')}><Text style={styles.buttonText}>Purchase</Text></TouchableOpacity>
                 </View>
             </View>
 
@@ -45,6 +45,7 @@ const Main = ({navigation}) => {
                     R12,000.00 
                     </Text> R10,499.00
                     </Text>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Find')}><Text style={styles.buttonText}>Purchase</Text></TouchableOpacity>
                 </View>
             </View>
 
@@ -61,6 +62,7 @@ const Main = ({navigation}) => {
                     R15,000.00 
                     </Text> R12,000.00
                     </Text>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Find')}><Text style={styles.buttonText}>Purchase</Text></TouchableOpacity>
                 </View>
             </View>
 
@@ -77,6 +79,7 @@ const Main = ({navigation}) => {
                     R12,000.00 
                     </Text> R10,499.00
                     </Text>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Find')}><Text style={styles.buttonText}>Purchase</Text></TouchableOpacity>
                 </View>
             </View>
 
@@ -150,7 +153,39 @@ const styles = StyleSheet.create({
     },
 
     subHeaderCont: {
-    marginBottom: 15, 
+    marginBottom: 15,
+    },
+
+    // button: {
+    // backgroundColor: 'green',
+    // borderRadius: 10,
+    // padding: 10,
+    // marginBottom: 10,
+    // marginTop: 10,
+    // },
+
+    // buttonText: {
+    // color: 'white',
+    // fontWeight: 'bold',
+
+    // },
+
+    button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'green',
+    marginTop: 20,
+},
+    buttonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
     },
 });
 

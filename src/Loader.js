@@ -6,7 +6,7 @@ import { View, Text, StyleSheet ,ActivityIndicator} from 'react-native';
 const Loader = () => {
     return (
         <View style={[styles.container, styles.horizontal]}>
-              <ActivityIndicator size="large" color="#00ff00" />
+            <ActivityIndicator size="large" color="#00ff00" />
 
         </View>
     );
@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         backgroundColor:'blue',
         width: '100%',
-      },
-      horizontal: {
+    },
+    horizontal: {
         flexDirection: "row",
         justifyContent: "space-around",
         padding: 10
-      }
+    }
 });
 
 //make this component available to the app

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Dimensions, Image, View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import buy from '../assets/buy.png';
 import profile from '../assets/profile.png';
-import insta from '../assets/insta.png';
+import review from '../assets/review.png';
 import support from '../assets/support.png';
 
 
@@ -15,11 +15,11 @@ const Dashboard = ({navigation}) => {
     <View style={styles.outerContainer}>
         <View style={styles.container1}>
             <View style={styles.inner1}><TouchableOpacity onPress={() => navigation.navigate('Main')}><Image source={buy} style={styles.images} /></TouchableOpacity></View>
-            <View style={styles.inner2}><TouchableOpacity onPress={() => navigation.navigate('Main')}><Image source={profile} style={styles.images}/></TouchableOpacity></View>
+            <View style={styles.inner2}><TouchableOpacity onPress={() => navigation.navigate('Profile')}><Image source={profile} style={styles.images}/></TouchableOpacity></View>
         </View>
 
         <View style={styles.container2}>
-            <View style={styles.inner3}><TouchableOpacity onPress={() => navigation.navigate('Main')}><Image source={insta} style={styles.images}/></TouchableOpacity></View>
+            <View style={styles.inner3}><TouchableOpacity onPress={() => navigation.navigate('Read')}><Image source={review} style={styles.images}/></TouchableOpacity></View>
             <View style={styles.inner4}><TouchableOpacity onPress={() => navigation.navigate('Main')}><Image source={support} style={styles.images}/></TouchableOpacity></View>
         </View>
 

@@ -1,29 +1,41 @@
 //import liraries
 import React, { useEffect,useState } from 'react';
-import { KeyboardAvoidingView, Dimensions, Image, View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { Dimensions, Image, View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import icon2 from '../assets/icon2.png';
-import { auth } from '../firebase.js';
-import {signInWithEmailAndPassword} from "firebase/auth";
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import { auth} from "../firebase.js";
+// import { auth } from '../firebase.js';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 
 // create a component
-const Login = ({navigation}) => {
+const Register = ({navigation}) => {
     const [email, setEmail] = React.useState(null);
     const [password, setPassword] = React.useState(null);
-    
-    const handleLogin = () => 
-    {signInWithEmailAndPassword(auth, email, password)
-        .then(userCredentials => {
-            const user = userCredentials.user;
-            console.log('Logged in with:', user.email);
-            navigation.navigate('Dashboard');
-        })
-        .catch(error => alert(error.message))
-    }
-    
+
+
+// const RegisterUser = () => {createUserWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//         // Signed in 
+//         const user = userCredential.user;
+//         navigation.navigate('Dashboard');
+//         // ...
+//     })
+//     .catch((error) => {
+//         const errorCode = error.code;
+//         const errorMessage = error.message;
+//         // ..
+//     });}
+const handleRegister = () =>
+{createUserWithEmailAndPassword(auth, email, password)
+    .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Registered with:', user.email);
+        navigation.navigate('Dashboard');
+    })
+    .catch(error => alert(error.message))}
 
     return (
     <View style={styles.container}>
@@ -33,7 +45,7 @@ const Login = ({navigation}) => {
         Your first choice for mobile phones!
     </Text>
 
-    <KeyboardAvoidingView>
+    <View>
         <TextInput
         placeholder='Email'
         style={styles.input}
@@ -49,12 +61,12 @@ const Login = ({navigation}) => {
         value={password}
         secureTextEntry
         ></TextInput>
-    </KeyboardAvoidingView>
+    </View>
 
-    <TouchableOpacity onPress={handleLogin} style={styles.button}>
-    <Text style={styles.buttonText}>Login</Text>
+    <TouchableOpacity onPress={handleRegister} style={styles.button}>
+    <Text style={styles.buttonText}>Register</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.click}><Text style = {styles.clickText}>Not a member? Register</Text></TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.click}><Text style = {styles.clickText}>Have an account? Login</Text></TouchableOpacity>
     </View>
     );
 };
@@ -110,12 +122,13 @@ const styles = StyleSheet.create({
     click: {
     marginTop: 20,
     },
+
     clickText: {
     textDecorationLine: 'underline',
-    fontWeight: "bold",
     color: 'blue',
+    fontWeight: "bold",
     },
 });
 
 //make this component available to the app
-export default Login;
+export default Register;
